@@ -1,0 +1,12 @@
+[theme]
+base = "dark"
+
+[server]
+# The app is mounted in Streamlit's component iframe; relax CORS so it also
+# embeds cleanly inside an LMS or another site.
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 5
+
+[browser]
+gatherUsageStats = false

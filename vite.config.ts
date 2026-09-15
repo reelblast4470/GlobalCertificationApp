@@ -13,9 +13,10 @@ export default defineConfig({
     reportCompressedSize: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-        },
+        // Single-file mode (Streamlit) must emit exactly ONE js chunk, or the
+        // extra chunks would 404 — Streamlit cannot serve a static folder.
+        // Normal builds keep react split out for better browser caching.
+        manualChunks: process.env.SINGLE_FILE ? undefined : { react: ['react', 'react-dom'] },
       },
     },
   },
