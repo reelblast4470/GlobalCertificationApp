@@ -1,0 +1,29 @@
+/*
+  # --- Security headers (Cloudflare Pages / Netlify) ---
+  # The app has no backend and loads no third-party scripts, so a tight CSP
+  # costs nothing. 'unsafe-inline' on style-src is required because React
+  # writes styles via inline style attributes.
+  # If you ever need to embed the app inside an iframe (LMS, another site),
+  # relax frame-ancestors and X-Frame-Options accordingly.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'; object-src 'none'
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  # --- Caching ---
+  # Hashed build assets can be cached forever; never cache the SW or index.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/index.html
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600

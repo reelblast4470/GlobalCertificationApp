@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# build output (CI rebuilds it; build locally with `npm run build`)
+dist/
+
+# test bundles
+tests/*.bundle.cjs
+
+# secrets — never commit
+.env
+.env.*
+*.pem
+*.key
+
+# logs & OS junk
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# typescript build info
+tsconfig.tsbuildinfo
+*.tsbuildinfo
